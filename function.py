@@ -55,6 +55,10 @@ def example(m):
                     m.pop(t)
                     z += 1
                 m.insert(t, res)
+    else:
+        res = int(m[0])
+        for i in range(1, len(m)-1, 2):
+            res = calc(res, int(m[i+1]), m[i])
     for i in m:
         if i == '*' or i == '/' in m:
             l2 = m[m.index(i)-1:m.index(i)+2]
@@ -67,8 +71,4 @@ def example(m):
             res = int(m[0])
             for i in range(1, len(m)-1, 2):
                 res = calc(res, int(m[i+1]), m[i])
-    else:
-        res = int(m[0])
-        for i in range(1, len(m)-1, 2):
-            res = calc(res, int(m[i+1]), m[i])
     return res
